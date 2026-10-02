@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nev": "Deluxe Franciaágyas Szoba",
+    "tipus": "Szoba",
+    "ferohely": 2,
+    "ar_ejszakankent": 28000,
+    "szolgaltatasok": ["WiFi", "Klíma", "Erkély", "Minibár", "TV"],
+    "leiras": "Tágas, modern berendezésű franciaágyas szoba városra néző panorámával és saját erkéllyel.",
+    "kep": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=500"
+  },
+  {
+    "id": 2,
+    "nev": "Családi Panoráma Apartman",
+    "tipus": "Apartman",
+    "ferohely": 4,
+    "ar_ejszakankent": 45000,
+    "szolgaltatasok": ["WiFi", "Klíma", "Konyha", "Mosógép", "Rácsos ágy", "TV"],
+    "leiras": "Két hálószobás, jól felszerelt konyhával rendelkező apartman, amely tökéletes választás családoknak.",
+    "kep": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=500"
+  },
+  {
+    "id": 3,
+    "nev": "Standard Egyágyas Szoba",
+    "tipus": "Szoba",
+    "ferohely": 1,
+    "ar_ejszakankent": 18000,
+    "szolgaltatasok": ["WiFi", "Klíma", "Íróasztal", "TV"],
+    "leiras": "Kényelmes, letisztult szoba egyéni utazóknak vagy üzleti úton lévőknek.",
+    "kep": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500"
+  },
+  {
+    "id": 4,
+    "nev": "Superior Jacuzzis Lakosztály",
+    "tipus": "Lakosztály",
+    "ferohely": 2,
+    "ar_ejszakankent": 62000,
+    "szolgaltatasok": ["WiFi", "Klíma", "Jacuzzi", "Tengerre néző erkély", "Reggeli az árban", "Kávéfőző"],
+    "leiras": "Luxus lakosztály saját bel beltéri jacuzzival és lélegzetelállító panorámával.",
+    "kep": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500"
+  },
+  {
+    "id": 5,
+    "nev": "Kertes Erdei Faház",
+    "tipus": "Faház",
+    "ferohely": 6,
+    "ar_ejszakankent": 52000,
+    "szolgaltatasok": ["WiFi", "Saját kert", "Grillezési lehetőség", "Konyha", "Klíma"],
+    "leiras": "Önálló kertes faház csendes erdei környezetben, ideális baráti társaságoknak.",
+    "kep": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=500"
+  },
+  {
+    "id": 6,
+    "nev": "Premium Penthouse Lakosztály",
+    "tipus": "Lakosztály",
+    "ferohely": 4,
+    "ar_ejszakankent": 85000,
+    "szolgaltatasok": ["WiFi", "Klíma", "Saját tetőterasz", "Szauna", "Parkolóhely", "Kávéfőző"],
+    "leiras": "Legfelső emeleti exkluzív lakosztály privát tetőterasszal, szaunával és saját parkolóval.",
+    "kep": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500"
+  }
+]
