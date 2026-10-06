@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1F2937;
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.small-text, small {
+    font-size: 14px;
+    color: #6B7280;
+}
+
+.text-muted-custom {
+    color: #6B7280;
+}
+
+.container-custom {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+section {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.bg-light-custom {
+    background-color: #F3F4F6;
+}
+
+.controls-container, form, div.mb-3 {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 700px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card-custom {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #D1D5DB;
+}
+
+.card-placeholder {
+    height: 180px;
+    background-color: #E5E7EB;
+}
+
+.card-content {
+    padding: 16px;
+}
+
+a {
+    color: #2563EB;
+}
+
+a:hover {
+    color: #1D4ED8;
+}
+
+.btn-custom, input[type="button"], button {
+    background-color: #2563EB;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-custom:hover, input[type="button"]:hover, button:hover {
+    background-color: #1D4ED8;
+}
+
+input[type="text"], input[type="number"], select {
+    background-color: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    padding: 10px;
+    color: #1F2937;
+}
+
+table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #D1D5DB;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #F3F4F6;
+}
+
+header {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #D1D5DB;
+    padding: 20px 0;
+}
+
+footer {
+    background-color: #1F2937;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+}
+
+.star {
+    color: #F59E0B;
+}
