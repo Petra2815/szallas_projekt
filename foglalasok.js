@@ -3,8 +3,10 @@ import foglalasok from './foglalasok.json' with { type: 'json' };
 
 //Táblázatos feltöltés
 const table = document.getElementById("table");
+const kartyak = document.getElementById("kartyak");
 const kategoria = document.getElementById("kategoria");
 const rendezes = document.getElementById("rendezes");
+const radioGombok = document.querySelectorAll('input[name="nezet"]');
 
 function legorduloFeltoltese() {
     if (foglalasok.length === 0) return;
@@ -21,14 +23,11 @@ function legorduloFeltoltese() {
 }
 
 function tablazat_feltoltese(foglalasok) {
-
     let html = "";
-
     let kulcsok = [];
 
     if (foglalasok.length > 0) {
         const elsoElem = foglalasok[0];
-    
         for (let kulcs in elsoElem) {
             kulcsok.push(kulcs);
         }
@@ -39,7 +38,6 @@ function tablazat_feltoltese(foglalasok) {
         html += `<th>${kulcsok[k]}</th>`;
     }
     html += "</tr></thead>";
-
     html += "<tbody>";
     for (let i = 0; i < foglalasok.length; i++) {
         const elem = foglalasok[i];
@@ -56,8 +54,26 @@ function tablazat_feltoltese(foglalasok) {
     table.innerHTML = html;
 }
 
+//Kártyás feltöltés
+//
+
+
+
+//Nézetváltás
+function megjelenit() {
+    let kivalasztottNezet = document.querySelector('input[name="nezet"]:checked').value;
+
+    if (kivalasztottNezet == "tablazat") {
+        table.style.display = "table";
+    }
+    else {
+        table.style.display = "none";
+    }
+}
+
+//Adatok rendezése
 function rendezesAdatait() {
-    const kivalasztottKulcs = kategoria.value;
+    let kivalasztottKulcs = kategoria.value;
 
     foglalasok.sort(function(a, b) {
         let ertekA = a[kivalasztottKulcs];
@@ -84,8 +100,12 @@ rendezes.addEventListener("click", () => {
     rendezesAdatait();
 });
 
+for (let i = 0; i < radioGombok.length; i++) {
+    radioGombok[i].addEventListener("change", megjelenit);
+}
+
 legorduloFeltoltese();
 tablazat_feltoltese(foglalasok);
+megjelenit();
 
 
-//Kártyás feltöltés
