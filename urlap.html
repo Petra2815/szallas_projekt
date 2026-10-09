@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szállásfoglalás</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="urlap.css">
+    <script type="module" defer src="urlap.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">Pihenőhely Hotel</a>
+            <nav>
+                <a href="#">Főoldal</a>
+                <a href="#">Foglalás</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <section class="section">
+            <h1>Új szállásfoglalás</h1>
+            <p style="margin-bottom: 20px;">Kérjük, töltse ki az alábbi űrlapot a szállás lefoglalásához!</p>
+
+            <div id="errorAlert" class="alert-custom alert-danger-custom d-none"></div>
+            <div id="successAlert" class="alert-custom alert-success-custom d-none"></div>
+
+            <div class="form-wrapper">
+                <form id="bookingForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="szallasSelect">Válasszon szállást *</label>
+                            <select id="szallasSelect" required>
+                                <option value="">-- Kérjük válasszon --</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vendegNev">Vendég teljes neve *</label>
+                            <input type="text" id="vendegNev" placeholder="pl. Kovács Péter" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail cím *</label>
+                            <input type="email" id="email" placeholder="pl. kovacs.peter@email.hu" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefon">Telefonszám *</label>
+                            <input type="tel" id="telefon" placeholder="pl. +36301234567" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="erkezes">Érkezés dátuma *</label>
+                            <input type="date" id="erkezes" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tavozas">Távozás dátuma *</label>
+                            <input type="date" id="tavozas" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vendegSzam">Vendégek száma *</label>
+                            <input type="number" id="vendegSzam" min="1" value="1" required>
+                        </div>
+                    </div>
+
+                    <div class="price-summary">
+                        <h3>Számított adatok</h3>
+                        <p>Éjszakák száma: <strong id="ejszakakDisplay">0</strong> éjszaka</p>
+                        <p>Éjszakánkénti ár: <strong id="egysegArDisplay">0</strong> Ft</p>
+                        <p style="font-size: 20px; margin-top: 10px;">Végösszeg: <strong id="vegosszegDisplay" style="color: #2563EB;">0</strong> Ft</p>
+                    </div>
+
+                    <button type="submit" class="btn-custom">Foglalás elküldése</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Pihenőhely Hotel - Minden jog fenntartva.</p>
+    </footer>
+</body>
+</html>

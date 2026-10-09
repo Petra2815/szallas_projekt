@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foglalások</title>
+    <script type="module" src="./foglalasok.js" defer></script>
+    <link rel="stylesheet" href="foglalasok.css">
+</head>
+<body>
+    <h2>Foglalások</h2>
+
+
+    <form>
+        <input type="radio" name="nezet" value="tablazat" id="tablazat" checked><label for="tablazat">Táblázat</label>
+        <input type="radio" name="nezet" value="kartya" id="kartya"><label for="kartya">Kártyák</label>
+    </form>
+
+    <form>
+        <label for="kategoria">Rendezés kategória szerint:</label><select id="kategoria"></select>
+        <input type="button" id="rendezes" value="Rendezés">
+    </form>
+
+    <table id="table"></table>
+
+    <div id="kartyak"></div>
+    
+</body>
+</html>
