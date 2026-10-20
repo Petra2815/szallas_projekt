@@ -4,7 +4,7 @@ body {
     line-height: 1.5;
     color: #1F2937;
     background-color: #FFFFFF;
-    margin: 20px;
+    margin: 0px;
 }
 
 h2 {
@@ -60,4 +60,49 @@ th, td {
 
 th {
     background-color: #F3F4F6;
+}
+
+input[type="text"] {
+    background-color: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    padding: 10px;
+    color: #1F2937;
+}
+
+#kartyak {
+    display: none; /* Alapból rejtve, mert a táblázat lesz elöl */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.kartya {
+    background-color: #F3F4F6;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.kartya h3 {
+    margin: 0;
+    color: #2563EB;
+}
+
+.kartya p {
+    margin: 0;
+}
+
+.btn-torles {
+    background-color: #DC2626; /* Piros gomb */
+    margin-top: auto;
+}
+
+.btn-torles:hover {
+    background-color: #B91C1C;
 }
