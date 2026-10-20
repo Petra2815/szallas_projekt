@@ -1,13 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foglalások</title>
     <script type="module" src="./foglalasok.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="foglalasok.css">
 </head>
+
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Pihenőhely Hotel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Főoldal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="foglalasok.html">Foglalások</a></li>
+                    <li class="nav-item"><a class="nav-link" href="urlap.html">Új foglalás</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <h2>Foglalások</h2>
 
 
@@ -17,13 +35,35 @@
     </form>
 
     <form>
-        <label for="kategoria">Rendezés kategória szerint:</label><select id="kategoria"></select>
+        <label for="keresoNev">Keresés név alapján:</label>
+        <input type="text" id="keresoNev">
+
+        <label for="szuroSzallas">Szűrés szállás alapján:</label>
+        <select id="szuroSzallas">
+            <option value="">Összes szállás</option>
+            <option value="Deluxe Franciaágyas Szoba">Deluxe Franciaágyas Szoba</option>
+            <option value="Családi Panoráma Apartman">Családi Panoráma Apartman</option>
+            <option value="Standard Egyágyas Szoba">Standard Egyágyas Szoba</option>
+            <option value="Superior Jacuzzis Lakosztály">Superior Jacuzzis Lakosztály</option>
+            <option value="Kertes Erdei Faház">Kertes Erdei Faház</option>
+            <option value="Premium Penthouse Lakosztály">Premium Penthouse Lakosztály</option>
+        </select>
+    </form>
+
+    <form>
+        <label for="kategoria">Rendezés kategória szerint:</label>
+        <select id="kategoria"></select>
         <input type="button" id="rendezes" value="Rendezés">
     </form>
 
     <table id="table"></table>
 
     <div id="kartyak"></div>
-    
+    <button id="scrollTopBtn" class="btn btn-primary" title="Ugrás a tetejére" 
+            style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; font-weight: bold;">
+        ↑
+    </button>
+
 </body>
+
 </html>
