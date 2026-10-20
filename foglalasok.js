@@ -7,6 +7,7 @@ const kartyak = document.getElementById("kartyak");
 const kategoria = document.getElementById("kategoria");
 const rendezes = document.getElementById("rendezes");
 const radioGombok = document.querySelectorAll('input[name="nezet"]');
+const rendezesKategoria = document.getElementById("rendezesKategoria");
 
 const keresoNev = document.getElementById("keresoNev");
 const szuroSzallas = document.getElementById("szuroSzallas");
@@ -91,10 +92,12 @@ function megjelenit() {
     if (kivalasztottNezet === "tablazat") {
         table.style.display = "table";
         kartyak.style.display = "none";
+        rendezesKategoria.style.display = "block";
     }
     else {
         table.style.display = "none";
         kartyak.style.display = "grid";
+        rendezesKategoria.style.display = "none";
     }
 }
 
