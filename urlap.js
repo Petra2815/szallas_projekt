@@ -7,7 +7,7 @@ const tavozasInput = document.getElementById('tavozas');
 const vendegSzamInput = document.getElementById('vendegSzam');
 const bookingForm = document.getElementById('bookingForm');
 
-const MAX_EJSZAKAK = 14; 
+const MAX_EJSZAKAK = 14;
 
 const maiDatum = new Date().toISOString().split('T')[0];
 erkezesInput.min = maiDatum;
@@ -199,4 +199,21 @@ bookingForm.addEventListener('submit', function (e) {
         frissitMezoKorlatokat();
         szamolAr();
     }
+});
+
+const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", function () {
+    if (window.scrollY > 200) {
+        scrollBtn.style.display = "block";
+    } else {
+        scrollBtn.style.display = "none";
+    }
+});
+
+scrollBtn.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 });
