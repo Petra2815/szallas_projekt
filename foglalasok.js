@@ -8,6 +8,9 @@ const kategoria = document.getElementById("kategoria");
 const rendezes = document.getElementById("rendezes");
 const radioGombok = document.querySelectorAll('input[name="nezet"]');
 
+const keresoNev = document.getElementById("keresoNev");
+const szuroSzallas = document.getElementById("szuroSzallas");
+
 function legorduloFeltoltese() {
     if (foglalasok.length === 0) return;
 
@@ -96,9 +99,28 @@ function rendezesAdatait() {
     tablazat_feltoltese(foglalasok);
 }
 
+function szures() {
+    let nevSzoveg = keresoNev.value.toLowerCase();
+    let szallasErtek = szuroSzallas.value;
+
+    let szurtAdatok = foglalasok.filter(function (elem) {
+        let nevEgyezik = elem.vendeg_nev.toLowerCase().includes(nevSzoveg);
+        let szallasEgyezik = (szallasErtek === "" || elem.szallas_nev === szallasErtek);
+
+        return nevEgyezik && szallasEgyezik;
+    });
+
+    tablazat_feltoltese(szurtAdatok);
+    kartyak_feltoltese(szurtAdatok);
+}
+
 rendezes.addEventListener("click", () => {
     rendezesAdatait();
 });
+
+rendezes.addEventListener("click", rendezesAdatait);
+keresoNev.addEventListener("input", szures);
+szuroSzallas.addEventListener("change", szures);
 
 for (let i = 0; i < radioGombok.length; i++) {
     radioGombok[i].addEventListener("change", megjelenit);
