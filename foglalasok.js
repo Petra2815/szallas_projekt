@@ -1,7 +1,7 @@
-import foglalasok from './foglalasok.json' with { type: 'json' };
+import foglalasokData from './foglalasok.json' with { type: 'json' };
 
+let foglalasok = JSON.parse(JSON.stringify(foglalasokData));
 
-//Táblázatos feltöltés
 const table = document.getElementById("table");
 const kartyak = document.getElementById("kartyak");
 const kategoria = document.getElementById("kategoria");
@@ -25,13 +25,12 @@ function legorduloFeltoltese() {
     }
 }
 
-function tablazat_feltoltese(foglalasok) {
+function tablazat_feltoltese(adatok) {
     let html = "";
     let kulcsok = [];
 
-    if (foglalasok.length > 0) {
-        const elsoElem = foglalasok[0];
-        for (let kulcs in elsoElem) {
+    if (adatok.length > 0) {
+        for (let kulcs in adatok[0]) {
             kulcsok.push(kulcs);
         }
     }
@@ -40,16 +39,22 @@ function tablazat_feltoltese(foglalasok) {
     for (let k = 0; k < kulcsok.length; k++) {
         html += `<th>${kulcsok[k]}</th>`;
     }
+    html += "<th>Műveletek</th>";
     html += "</tr></thead>";
+
     html += "<tbody>";
-    for (let i = 0; i < foglalasok.length; i++) {
-        const elem = foglalasok[i];
+    for (let i = 0; i < adatok.length; i++) {
+        const elem = adatok[i];
+
+        if (elem.statusz !== "Aktív") continue;
+
         const ertekek = Object.values(elem);
 
         html += "<tr>";
         for (let j = 0; j < ertekek.length; j++) {
             html += `<td>${ertekek[j]}</td>`;
         }
+        html += `<td><button class="btn-torles" onclick="torles(${elem.id})">Törlés</button></td>`;
         html += "</tr>";
     }
     html += "</tbody>";
@@ -57,46 +62,40 @@ function tablazat_feltoltese(foglalasok) {
     table.innerHTML = html;
 }
 
-//Kártyás feltöltés
-//
+function kartyak_feltoltese(adatok) {
+    let html = "";
 
+    for (let i = 0; i < adatok.length; i++) {
+        const elem = adatok[i];
 
+        if (elem.statusz !== "Aktív") continue;
 
-//Nézetváltás
+        html += `
+            <div class="kartya">
+                <h3>${elem.szallas_nev}</h3>
+                <p><strong>Vendég:</strong> ${elem.vendeg_nev}</p>
+                <p><strong>Időtartam:</strong> ${elem.erkezes} - ${elem.tavozas}</p>
+                <p><strong>Vendégek:</strong> ${elem.vendeg_szam} fő</p>
+                <p><strong>Végösszeg:</strong> ${elem.vegosszeg.toLocaleString()} Ft</p>
+                <button class="btn-torles" onclick="torles(${elem.id})">Törlés</button>
+            </div>
+        `;
+    }
+
+    kartyak.innerHTML = html;
+}
+
 function megjelenit() {
     let kivalasztottNezet = document.querySelector('input[name="nezet"]:checked').value;
 
-    if (kivalasztottNezet == "tablazat") {
+    if (kivalasztottNezet === "tablazat") {
         table.style.display = "table";
+        kartyak.style.display = "none";
     }
     else {
         table.style.display = "none";
+        kartyak.style.display = "grid";
     }
-}
-
-//Adatok rendezése
-function rendezesAdatait() {
-    let kivalasztottKulcs = kategoria.value;
-
-    foglalasok.sort(function(a, b) {
-        let ertekA = a[kivalasztottKulcs];
-        let ertekB = b[kivalasztottKulcs];
-
-        if (typeof ertekA === "string") {
-            if (ertekA < ertekB) {
-                return -1;
-            }
-            if (ertekA > ertekB) {
-                return 1;
-            }
-            return 0;
-        } 
-        else {
-            return ertekA - ertekB;
-        }
-    });
-
-    tablazat_feltoltese(foglalasok);
 }
 
 function szures() {
@@ -114,9 +113,35 @@ function szures() {
     kartyak_feltoltese(szurtAdatok);
 }
 
-rendezes.addEventListener("click", () => {
-    rendezesAdatait();
-});
+window.torles = function (id) {
+    for (let i = 0; i < foglalasok.length; i++) {
+        if (foglalasok[i].id === id) {
+            foglalasok[i].statusz = "Törölve";
+            break;
+        }
+    }
+    szures();
+}
+
+function rendezesAdatait() {
+    let kivalasztottKulcs = kategoria.value;
+
+    foglalasok.sort(function (a, b) {
+        let ertekA = a[kivalasztottKulcs];
+        let ertekB = b[kivalasztottKulcs];
+
+        if (typeof ertekA === "string") {
+            if (ertekA < ertekB) return -1;
+            if (ertekA > ertekB) return 1;
+            return 0;
+        }
+        else {
+            return ertekA - ertekB;
+        }
+    });
+
+    szures();
+}
 
 rendezes.addEventListener("click", rendezesAdatait);
 keresoNev.addEventListener("input", szures);
@@ -126,8 +151,23 @@ for (let i = 0; i < radioGombok.length; i++) {
     radioGombok[i].addEventListener("change", megjelenit);
 }
 
+const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", function () {
+    if (window.scrollY > 200) {
+        scrollBtn.style.display = "block";
+    } else {
+        scrollBtn.style.display = "none";
+    }
+});
+
+scrollBtn.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
 legorduloFeltoltese();
-tablazat_feltoltese(foglalasok);
+szures();
 megjelenit();
-
-
