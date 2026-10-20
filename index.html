@@ -3,9 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pihenőhely Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background-color: #F3F4F6;
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+    </style>
 </head>
 <body>
-    
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Pihenőhely Hotel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Főoldal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="foglalasok.html">Foglalások</a></li>
+                    <li class="nav-item"><a class="nav-link" href="urlap.html">Új foglalás</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <h1 class="display-4 fw-bold">Üdvözöljük a Pihenőhely Hotelben!</h1>
+            <p class="lead mt-3">Lépjen ki a mindennapok mókuskerekéből, és élvezze a természet közelségét luxus környezetben. Nálunk minden a nyugalomról és a feltöltődésről szól.</p>
+            <a href="urlap.html" class="btn btn-primary btn-lg mt-4">Szobafoglalás indítása</a>
+        </div>
+
+        <h2 class="text-center mb-4">Népszerű Szállásaink</h2>
+        
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=500" class="card-img-top" alt="Családi Apartman">
+                    <div class="card-body">
+                        <h5 class="card-title">Családi Panoráma Apartman</h5>
+                        <p class="card-text">Két hálószobás, jól felszerelt konyhával rendelkező apartman, amely tökéletes választás családoknak.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500" class="card-img-top" alt="Jacuzzis Lakosztály">
+                    <div class="card-body">
+                        <h5 class="card-title">Superior Jacuzzis Lakosztály</h5>
+                        <p class="card-text">Luxus lakosztály saját beltéri jacuzzival és lélegzetelállító panorámával a maximális kényelemért.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=500" class="card-img-top" alt="Erdei Faház">
+                    <div class="card-body">
+                        <h5 class="card-title">Kertes Erdei Faház</h5>
+                        <p class="card-text">Önálló kertes faház csendes erdei környezetben, saját grillezővel. Ideális baráti társaságoknak.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="scrollTopBtn" class="btn btn-primary" title="Ugrás a tetejére" 
+            style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; font-weight: bold;">
+        ↑
+    </button>
+
+    <script>
+        const scrollBtn = document.getElementById("scrollTopBtn");
+
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 200) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        });
+
+        scrollBtn.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
